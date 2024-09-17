@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { DemoCV } from './components/DemoCV';
 import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary } from '@mui/joy';
 import { Education } from './components/Education';
-import { EducationInfo, PersonalData } from './helpers/types';
+import { EducationInfo, ExperienceInfo, PersonalData } from './helpers/types';
+import { Experience } from './components/Experience';
 
 function App() {
   const [personalData, setPersonalData] = useState<PersonalData>({
@@ -15,6 +16,8 @@ function App() {
   });
 
   const [educationData, setEducationData] = useState<EducationInfo[]>([]);
+
+  const [experienceData, setExperienceData] = useState<ExperienceInfo[]>([]);
 
   const [index, setIndex] = React.useState<number | null>(0);
 
@@ -34,9 +37,23 @@ function App() {
     );
   }
 
+  const updateExperience = (newExperience: ExperienceInfo) => {
+    setExperienceData(prevData => 
+      prevData.some(item => item.id === newExperience.id)
+        ? prevData.map(item => item.id === newExperience.id ? newExperience : item)
+        : [...prevData, newExperience]
+    );
+  }
+
   const deleteEducation = (educationToDelete: EducationInfo) => {
     setEducationData(prevData => 
       prevData.filter(education => education.id !== educationToDelete.id)
+    )
+  }
+
+  const deleteExperience = (experienceToDelete: ExperienceInfo) => {
+    setExperienceData(prevData => 
+      prevData.filter(education => education.id !== experienceToDelete.id)
     )
   }
 
@@ -73,13 +90,20 @@ function App() {
           setIndex(expanded ? 2 : null);
         }}>
         <AccordionSummary>Experience</AccordionSummary>
-        <AccordionDetails>Content</AccordionDetails>
+        <AccordionDetails>
+          <Experience
+            experienceData={experienceData}
+            updateExperience={updateExperience}
+            deleteExperience={deleteExperience}
+          />
+        </AccordionDetails>
       </Accordion>
 
     </AccordionGroup>
     <DemoCV
       personalData={personalData}
       educationData={educationData}
+      experienceData={experienceData}
       />
     </>
   )

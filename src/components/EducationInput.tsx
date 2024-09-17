@@ -13,7 +13,6 @@ export const EducationInput: React.FC<EducationInputProps> = ({
   isPresent,
   handlePresentChange
 }) => {
-
   return (
     <>
       <FormControl>

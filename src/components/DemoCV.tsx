@@ -1,7 +1,8 @@
 import { DemoCVProps } from "../helpers/types";
 import dayjs, { Dayjs } from 'dayjs';
 
-export const DemoCV: React.FC<DemoCVProps> = ({personalData, educationData}) => {
+export const DemoCV: React.FC<DemoCVProps> = ({personalData, educationData, experienceData}) => {
+  console.log(experienceData)
   return (
     <>
       <div className="personal-info" style={{ backgroundColor:'red'}}>
@@ -29,6 +30,7 @@ export const DemoCV: React.FC<DemoCVProps> = ({personalData, educationData}) => 
         ))}
         
       </div>
+      <div className="experience-container"></div>
     </>
   )
 }

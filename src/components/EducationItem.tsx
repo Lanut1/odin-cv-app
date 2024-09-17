@@ -7,8 +7,8 @@ export const EducationItem: React.FC<EducationItemProps> = ({educationItemData, 
   return (
     <div className="education-item">
       <div className="education-item__title">{educationItemData.school}</div>
-      <Button onClick={deleteItem}><DeleteOutline/></Button>
-      <Button onClick={editItem}><EditNote/></Button>
+      <Button onClick={() => deleteItem(educationItemData)}><DeleteOutline/></Button>
+      <Button onClick={() => editItem(educationItemData)}><EditNote/></Button>
     </div>
   )
 }
