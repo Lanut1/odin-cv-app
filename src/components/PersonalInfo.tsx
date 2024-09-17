@@ -2,11 +2,7 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import React from 'react';
-
-type PersonalInfoProps = {
-  personalData: { name: string; email: string; phone: string; location: string };
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { PersonalInfoProps } from '../helpers/types';
 
 export const PersonalInfo: React.FC<PersonalInfoProps> = ({personalData, onChange}) => {
  return (
