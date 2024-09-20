@@ -1,10 +1,18 @@
 import { useState } from "react";
-import { ExperienceInfo, ExperienceInfoProps } from "../helpers/types"
+
+import { ExperienceInfo, ExperienceInfoProps } from "../helpers/types";
+
 import { Dayjs } from "dayjs";
+
 import {v4 as uuid} from 'uuid';
+
 import { ExperienceInput } from "./ExperienceInput";
 import { ExperienceItem } from "./ExperienceItem";
+
 import { Button } from "@mui/joy";
+
+import { LibraryAdd } from "@mui/icons-material";
+import { CV_FORM } from "../helpers/constants";
 
 export const Experience: React.FC<ExperienceInfoProps> = ({
   experienceData,
@@ -81,7 +89,7 @@ export const Experience: React.FC<ExperienceInfoProps> = ({
     cancelAddingExperience();
   }
   return (
-    <>
+    <div className="cv-form__experience-info">
     {isEditing ? (
       <>
         <ExperienceInput
@@ -97,7 +105,7 @@ export const Experience: React.FC<ExperienceInfoProps> = ({
     )
     : (
       <>
-        <div className="experience-items">
+        <div className="cv-form__experience-items">
           {experienceData.map((experience) =>
           <ExperienceItem
             key={experience.id}
@@ -107,10 +115,10 @@ export const Experience: React.FC<ExperienceInfoProps> = ({
           />
           )}
         </div>
-        <Button onClick={() => openForm()}>Add experience</Button>
+        <Button onClick={() => openForm()} className="button--default"><LibraryAdd/>{CV_FORM.EXPERIENCE}</Button>
       </>
     )}
-  </>
+  </div>
 
   )
 }

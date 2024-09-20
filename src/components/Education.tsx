@@ -1,10 +1,19 @@
-import { Button } from "@mui/joy";
-import { EducationInfo, EducationInfoProps } from "../helpers/types";
-import { EducationItem } from "./EducationItem";
 import React, { useState } from "react";
+
+import { Button } from "@mui/joy";
+
+import { EducationInfo, EducationInfoProps } from "../helpers/types";
+
+import { EducationItem } from "./EducationItem";
 import { EducationInput } from "./EducationInput";
+
 import {v4 as uuid} from 'uuid';
+
 import dayjs, { Dayjs } from 'dayjs';
+
+import { LibraryAdd } from "@mui/icons-material";
+
+import { CV_FORM } from "../helpers/constants";
 
 export const Education: React.FC<EducationInfoProps> = ({educationData, updateEducation, deleteEducation}) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -76,7 +85,7 @@ export const Education: React.FC<EducationInfoProps> = ({educationData, updateEd
   }
 
   return (
-  <>
+  <div className="cv-form__education-info">
     {isEditing ? (
       <>
         <EducationInput
@@ -92,7 +101,7 @@ export const Education: React.FC<EducationInfoProps> = ({educationData, updateEd
     )
     : (
       <>
-        <div className="education-items">
+        <div className="cv-form__education-items">
           {educationData.map((education) =>
           <EducationItem
             key={education.id}
@@ -102,9 +111,9 @@ export const Education: React.FC<EducationInfoProps> = ({educationData, updateEd
           />
           )}
         </div>
-        <Button onClick={() => openForm()}>Add education</Button>
+        <Button className="button--default" onClick={() => openForm()}><LibraryAdd/>{CV_FORM.EDUCATION}</Button>
       </>
     )}
-  </>
+  </div>
   )
 }

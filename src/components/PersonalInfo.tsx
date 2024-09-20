@@ -6,27 +6,26 @@ import { PersonalInfoProps } from '../helpers/types';
 
 export const PersonalInfo: React.FC<PersonalInfoProps> = ({personalData, onChange}) => {
  return (
-  <>
-  <FormControl>
-    <FormLabel>Full name</FormLabel>
-    <Input name="name" placeholder="Enter full name" value={personalData.name} onChange={onChange}/>
-  </FormControl>
+  <div className="cv-form__personal-info">
+    <FormControl>
+      <FormLabel>Full name</FormLabel>
+      <Input name="name" placeholder="Enter full name" value={personalData.name} onChange={onChange}/>
+    </FormControl>
 
-  <FormControl>
-    <FormLabel>Email</FormLabel>
-    <Input name="email" placeholder="Enter email" value={personalData.email} onChange={onChange}/>
-  </FormControl>
+    <FormControl>
+      <FormLabel>Email</FormLabel>
+      <Input name="email" placeholder="Enter email" value={personalData.email} onChange={onChange}/>
+    </FormControl>
 
-  <FormControl>
-    <FormLabel>Phone</FormLabel>
-    <Input name="phone" placeholder="Enter phone number" value={personalData.phone} onChange={onChange}/>
-  </FormControl>
+    <FormControl>
+      <FormLabel>Phone</FormLabel>
+      <Input name="phone" placeholder="Enter phone number" value={personalData.phone} onChange={onChange}/>
+    </FormControl>
 
-  <FormControl>
-    <FormLabel>Location</FormLabel>
-    <Input name="location" placeholder="City, country" value={personalData.location} onChange={onChange}/>
-  </FormControl>
-
-</>
+    <FormControl>
+      <FormLabel>Location</FormLabel>
+      <Input name="location" placeholder="City, country" value={personalData.location} onChange={onChange}/>
+    </FormControl>
+  </div>
  )
 }

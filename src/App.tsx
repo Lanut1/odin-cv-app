@@ -1,19 +1,20 @@
-import { PersonalInfo } from './components/PersonalInfo'
-import './App.css'
 import React, { useState } from 'react';
+
+import { PersonalInfo } from './components/PersonalInfo';
 import { DemoCV } from './components/DemoCV';
-import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary } from '@mui/joy';
 import { Education } from './components/Education';
-import { EducationInfo, ExperienceInfo, PersonalData } from './helpers/types';
 import { Experience } from './components/Experience';
 
+import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary } from '@mui/joy';
+
+import { EducationInfo, ExperienceInfo, PersonalData } from './helpers/types';
+
+import { CV_FORM, MOCKED_DATA } from './helpers/constants';
+
+import './App.css';
+
 function App() {
-  const [personalData, setPersonalData] = useState<PersonalData>({
-    name: '',
-    email: '',
-    phone: '',
-    location: ''
-  });
+  const [personalData, setPersonalData] = useState<PersonalData>(MOCKED_DATA);
 
   const [educationData, setEducationData] = useState<EducationInfo[]>([]);
 
@@ -58,55 +59,59 @@ function App() {
   }
 
   return (
-    <>
-    <AccordionGroup>
-      <Accordion expanded={index === 0}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 0 : null);
-        }}>
-        <AccordionSummary>Personal Info</AccordionSummary>
-        <AccordionDetails>
-          <PersonalInfo
-            personalData={personalData}
-            onChange={(event) => handleInputChange(event)}
-            />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={index === 1}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 1 : null);
-        }}>
-        <AccordionSummary>Education</AccordionSummary>
-        <AccordionDetails>
-          <Education
-            educationData={educationData}
-            updateEducation={updateEducation}
-            deleteEducation={deleteEducation}
-            />
-        </AccordionDetails>
-        </Accordion>
-      <Accordion expanded={index === 2}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 2 : null);
-        }}>
-        <AccordionSummary>Experience</AccordionSummary>
-        <AccordionDetails>
-          <Experience
-            experienceData={experienceData}
-            updateExperience={updateExperience}
-            deleteExperience={deleteExperience}
-          />
-        </AccordionDetails>
-      </Accordion>
+    <main>
+      <section className="cv-form">
+        <AccordionGroup>
+          <Accordion expanded={index === 0}
+            onChange={(event, expanded) => {
+              setIndex(expanded ? 0 : null);
+            }}>
+            <AccordionSummary>{CV_FORM.PERSONAL_INFO}</AccordionSummary>
+            <AccordionDetails>
+              <PersonalInfo
+                personalData={personalData}
+                onChange={(event) => handleInputChange(event)}
+                />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion expanded={index === 1}
+            onChange={(event, expanded) => {
+              setIndex(expanded ? 1 : null);
+            }}>
+            <AccordionSummary>{CV_FORM.EDUCATION}</AccordionSummary>
+            <AccordionDetails>
+              <Education
+                educationData={educationData}
+                updateEducation={updateEducation}
+                deleteEducation={deleteEducation}
+                />
+            </AccordionDetails>
+            </Accordion>
+          <Accordion expanded={index === 2}
+            onChange={(event, expanded) => {
+              setIndex(expanded ? 2 : null);
+            }}>
+            <AccordionSummary>{CV_FORM.EXPERIENCE}</AccordionSummary>
+            <AccordionDetails>
+              <Experience
+                experienceData={experienceData}
+                updateExperience={updateExperience}
+                deleteExperience={deleteExperience}
+              />
+            </AccordionDetails>
+          </Accordion>
 
-    </AccordionGroup>
-    <DemoCV
-      personalData={personalData}
-      educationData={educationData}
-      experienceData={experienceData}
-      />
-    </>
+        </AccordionGroup>
+      </section>
+      <section className="cv-demo">
+        <DemoCV
+            personalData={personalData}
+            educationData={educationData}
+            experienceData={experienceData}
+            />
+      </section>
+    </main>
   )
 }
 
-export default App
+export default App;

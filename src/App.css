@@ -1,5 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+}
+
+main {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.cv-form {
+  width: 40vw;
+  padding: 1.5rem;
+  position: sticky;
+  block-size: fit-content;
+  top: 1.5rem;
+}
+
+.cv-demo {
+  width: 60vw;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.cv-demo button {
+  align-self: flex-end;
+}
+
+.cv-demo__paper-container {
+  box-shadow: 0 0 6px gray;
+  aspect-ratio: 1 / 1.4142;
+}
+
+.cv-form__personal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cv-form__education-info,
+.cv-form__experience-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cv-form__buttons-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.button--default {
+  width: 8rem;
+}
+
+.cv-form__date-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cv-form__date-picker label {
+  margin: 0;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.cv-form__date-picker-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.cv-form__education-items,
+.cv-form__experience-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cv-form__education-item,
+.cv-form__experience-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cv-form__education-item__buttons-container,
+.cv-form__experience-item__buttons-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.personal-info {
+  background-color: #1E434C;
+  /* background-color: #4D85BD; */
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.personal-info__name {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.personal-info__phone-location__container {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.personal-info__email,
+.personal-info__phone,
+.personal-info__location {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.personal-info__email {
+  font-size: 1.5rem;
+}
+
+.education-container {
+  padding: 2rem;
 }
