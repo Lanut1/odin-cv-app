@@ -81,3 +81,15 @@ export type ExperienceItemProps = {
   editItem: (experienceToEdit: ExperienceInfo) => void;
   deleteItem: (experienceToDelete: ExperienceInfo) => void;
 }
+
+export type PersonalDemoProps = {
+  personalData: PersonalData;
+}
+
+export type EducationDemoProps = {
+  educationData: EducationInfo[];
+}
+
+export type ExperienceDemoProps = {
+  experienceData: ExperienceInfo[];
+}

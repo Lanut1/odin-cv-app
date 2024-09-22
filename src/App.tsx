@@ -9,16 +9,16 @@ import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary } from '@
 
 import { EducationInfo, ExperienceInfo, PersonalData } from './helpers/types';
 
-import { CV_FORM, MOCKED_DATA } from './helpers/constants';
+import { CV_FORM, EDUCATION_DATA, EXPERIENCE_DATA, PERSONAL_DATA } from './helpers/constants';
 
 import './App.css';
 
 function App() {
-  const [personalData, setPersonalData] = useState<PersonalData>(MOCKED_DATA);
+  const [personalData, setPersonalData] = useState<PersonalData>(PERSONAL_DATA);
 
-  const [educationData, setEducationData] = useState<EducationInfo[]>([]);
+  const [educationData, setEducationData] = useState<EducationInfo[]>(EDUCATION_DATA);
 
-  const [experienceData, setExperienceData] = useState<ExperienceInfo[]>([]);
+  const [experienceData, setExperienceData] = useState<ExperienceInfo[]>(EXPERIENCE_DATA);
 
   const [index, setIndex] = React.useState<number | null>(0);
 

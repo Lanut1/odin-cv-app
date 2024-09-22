@@ -40,6 +40,7 @@ body {
 .cv-demo__paper-container {
   box-shadow: 0 0 6px gray;
   aspect-ratio: 1 / 1.4142;
+  width: 100%;
 }
 
 .cv-form__personal-info {
@@ -103,14 +104,13 @@ body {
 }
 
 .personal-info {
-  background-color: #1E434C;
-  /* background-color: #4D85BD; */
-  color: white;
+  background-color: white;
+  color: black;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-items: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -138,6 +138,38 @@ body {
   font-size: 1.5rem;
 }
 
-.education-container {
+.education-container,
+.experience-container {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.education-info,
+.experience-info {
+  display: flex;
+  gap: 1.3rem;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.education-info__first-container,
+.education-info__second-container,
+.experience-info__first-container,
+.experience-info__second-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 40%;
+}
+
+.education-info__degree,
+.experience-info__position {
+  font-weight: bold;
+}
+
+.experience-info__duration,
+.education-info__duration {
+  font-style: italic;
 }
