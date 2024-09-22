@@ -18,6 +18,10 @@ This project is part of the Odin Project curriculum, which focuses on building r
 - Live preview of the generated CV
 - Option to download the CV as a PDF
 
+## Live Demo
+
+Check out the live version of the CV Builder application [here](https://glistening-tartufo-0e405e.netlify.app/).
+
 ## Installation
 
 To get started with the project, clone the repository and install the dependencies:
